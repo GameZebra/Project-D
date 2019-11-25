@@ -11,6 +11,9 @@
                 if(isset($_SESSION['userId'])){
                     echo '<li><a href="profile.php">Профил</a></li>
                     <li class="login"><a href="logout.inc.php">Излез</a></li>';
+                    if($_SESSION['status']!=='pleb'){
+                        echo'<li><a href="patient.php">Пациенти</a></li>';
+                    }
                 }
                 else{
                     echo '<li class="login"><a href="login.php">Влез</a></li>

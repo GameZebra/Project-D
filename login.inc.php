@@ -31,6 +31,7 @@ if(isset($_POST['login'])){
                     session_start();
                     $_SESSION['userId'] = $row['user_id'];
                     $_SESSION['username'] = $row['username'];
+                    $_SESSION['status'] = $row['status'];
 
                     header("Location: ../shugardiary/profile.php?loggedin=success");
                     exit();
@@ -46,6 +47,7 @@ if(isset($_POST['login'])){
             }
         }
     }
+
 }
 else{
     header("Location: ../shugardiary/index.php");

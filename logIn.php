@@ -13,10 +13,10 @@
         <!--Navigation bar-->
         <ul id="nav-bar">
             <li><a href="index.php">Начало</a></li>
-            <li><a herf="aboutUs.php">За нас</a></li>
+            <li><a href="aboutUs.php">За нас</a></li>
             <?php
                 if(isset($_SESSION['userId'])){
-                    echo '<li><a herf="profile.php">Профил</a></li>
+                    echo '<li><a href="profile.php">Профил</a></li>
                     <li class="login"><a href="logout.inc.php">Излез</a></li>';
                 }
                 else{

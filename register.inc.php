@@ -56,8 +56,17 @@ if(isset($_POST['register'])){
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../shugardiary/register.php?registration=success");
+                    $sql1 = "SELECT * FROM profiles WHERE username='".$username."' AND password = '".$hashedPwd."'";
+                    $result = $conn->query($sql1);
+                    if ($result -> num_rows > 0){
+                    $row = $result->fetch_assoc();
+                    session_start();
+                    $_SESSION['userId'] = $row['user_id'];
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['status'] = $row['status'];
+                    header("Location: ../shugardiary/settings.php?registration=success");
                     exit();
+                    }
                 }
                 
             }
